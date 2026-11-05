@@ -84,7 +84,10 @@ The data was spread across 6 big CSV files (~15 million rows, 2 GB). The work we
 4. A hard-coded `C:\Users\...` path meant nobody else could run the code. It now uses relative paths. **Fixed.**
 5. The 1.6 GB sales file was loaded into memory in one go. It is now read in 500K-row chunks. **Fixed.**
 6. The confidence-interval test was labelled "vendors", but each row is a vendor + product. **Relabelled.**
-7. The Power BI margin card uses *Sum of ProfitMargin*, which adds up percentages. **Documented** (fix is a DAX measure).
+7. **Dashboard issues (documented, not changed):**
+   - The Profit Margin (%) card shows 38.7, the plain average of row margins. The true weighted margin is 30.4%; the fix is a DAX measure.
+   - The "Profit Margin ($)" card is really Gross Profit.
+   - The donut percentages are shares of the top 10 vendors only.
 
 ## 7. Roles this project fits
 - **Data Analyst / Business Analyst** (best fit): SQL, Python, Power BI and business recommendations.

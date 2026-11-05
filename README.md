@@ -53,7 +53,7 @@ flowchart LR
 ## Dashboard
 ![Power BI dashboard](dashboard/dashboard_preview.png)
 
-One-page Power BI report ([dashboard/Vendor_Performance_Dashboard.pbix](dashboard/Vendor_Performance_Dashboard.pbix)): KPI cards (sales, purchases, gross profit, margin, unsold capital), vendor purchase-share donut, top vendors and top brands bars, low-turnover vendor funnel, and a target-brand scatter.
+One-page Power BI report ([dashboard/Vendor_Performance_Dashboard.pbix](dashboard/Vendor_Performance_Dashboard.pbix)): KPI cards (sales, purchases, gross profit, margin, unsold capital), purchase-share donut for the top 10 vendors, top vendors and top brands bars, a funnel of the lowest-turnover vendors, and a scatter that highlights low-sales / high-margin brands.
 
 ## Selected charts
 | | |
@@ -108,8 +108,11 @@ jupyter nbconvert --to notebook --execute --inplace notebooks/02_vendor_performa
 - Hard-coded local paths removed; large CSVs are ingested in 500K-row chunks.
 
 ## Known limitations & next steps
-- The Power BI *Profit Margin* card sums row-level margins; it should use a measure such as
-  `Profit Margin % = DIVIDE(SUM(vendor_sales_summary[GrossProfit]), SUM(vendor_sales_summary[TotalSalesDollars]))` (≈ 30.4%).
+- Dashboard fixes planned:
+  - The *Profit Margin (%)* card shows 38.7, a simple average of row-level margins. The sales-weighted margin is 30.4%, from the measure
+    `Profit Margin % = DIVIDE(SUM(vendor_sales_summary[GrossProfit]), SUM(vendor_sales_summary[TotalSalesDollars]))`.
+  - The *Profit Margin ($)* card is really Gross Profit and should be relabelled.
+  - The donut shows each vendor's share of the top-10 total; vendor share of *all* purchases is in the Pareto chart (Diageo 16.3%).
 - Analysis is at vendor + product level for one year (2024); no seasonality or store-level breakdown yet.
 - Next: vendor lead-time KPI from PO → receiving dates, price variance vs. list price, a vendor scorecard, and automated tests for the pipeline.
 

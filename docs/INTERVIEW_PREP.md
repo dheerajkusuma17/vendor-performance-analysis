@@ -60,7 +60,9 @@ Units sold ÷ units bought in the year. Above 1 means we sold more than we bough
 - A low-turnover vendor funnel and a target-brand scatter.
 
 **10. Any mistakes you'd fix in the dashboard?**
-The margin card sums row-level percentages. It should be a DAX measure: `DIVIDE(SUM(GrossProfit), SUM(TotalSalesDollars))`, which gives about 30.4%.
+- **Margin card:** it shows 38.7%, the plain average of each product's margin, so a $10 product counts as much as a $5M one. The right number is the weighted margin, a DAX measure `DIVIDE(SUM(GrossProfit), SUM(TotalSalesDollars))` that gives 30.4%.
+- **Labels:** the "Profit Margin ($)" card should be labelled Gross Profit.
+- **Donut:** it shows shares within the top 10 vendors (Diageo 26%), while its share of all purchases is 16.3%.
 
 **11. What recommendations did you make?**
 - Diversify away from the top 10 vendors.
