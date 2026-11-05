@@ -1,0 +1,10 @@
+pandas>=2.2
+numpy>=1.26
+scipy>=1.11
+matplotlib>=3.8
+seaborn>=0.13
+SQLAlchemy>=2.0
+# dev / notebook rendering
+jupytext>=1.16
+nbconvert>=7.16
+ipykernel>=6.29

@@ -1,0 +1,22 @@
+# Raw data & database (too large for GitHub - see data/README.md)
+data/*.csv
+*.db
+*.db-journal
+
+# Logs (folder kept via .gitkeep)
+logs/*.log
+
+# Old / personal files kept locally only
+_archive/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
